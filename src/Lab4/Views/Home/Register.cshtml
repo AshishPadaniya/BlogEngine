@@ -1,0 +1,52 @@
+﻿@model Assignment1.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form asp-controller="Home" asp-action="addUser">
+    <div class="form-group">
+        <label for="Title">  FirstName:</label><br />
+        <div class="text-center">
+            <input asp-for="FirstName" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">  LastName:</label><br />
+        <div class="text-center">
+            <input asp-for="LastName" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">  EmailAddress:</label><br />
+        <div class="text-center">
+            <input asp-for="EmailAddress" type="email" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">  Password:</label><br />
+        <div class="text-center">
+            <input asp-for="Password " type="password" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Password">RoleId</label>
+        <br />Role :  <label for="admin">Admin</label><input asp-for="RoleId" type="radio" value="2" id="admin" /> <label for="normal">General User</label><input asp-for="RoleId" type="radio" value="1" id="normal" />
+    </div>
+        <br />
+        <br />
+
+
+
+
+
+
+        <input type="submit" value="Add User" />
+
+</form>

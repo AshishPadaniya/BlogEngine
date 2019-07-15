@@ -1,0 +1,60 @@
+﻿@model Assignment1.Models.Comment
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    @ViewBag.auther.FirstName  @ViewBag.auther.LastName
+</h2>
+<br />
+<h4>
+    @ViewBag.auther.EmailAddress 
+</h4>
+<br />
+<h1>@ViewBag.Post.Title</h1>
+<br />
+<div>
+@ViewBag.Post.Content
+</div>
+<div>
+    posted at : @ViewBag.Post.Posted
+</div>
+
+
+@if (ViewBag.logged_in == true)
+{
+    <div>Add Comment</div>
+    <form asp-controller="Home" asp-action="AddComment">
+
+        <input type="hidden" value="@ViewBag.Post.BlogPostId" name="BlogPostId" />
+        <textarea asp-for="Content"></textarea>
+        <br />
+        <br />
+
+        <input type="submit" value="Add Comment" />
+
+    </form>
+
+}
+<br />
+@if(Enumerable.Count(ViewBag.Comments)  == 0)
+{
+<div>
+    <h4>Currently, there are no Comments to display.</h4>
+</div>
+}else{
+
+
+    @foreach (var comment in ViewBag.Comments)
+    {
+        <div>
+            
+            <div>@comment.Content</div>
+        </div>
+    }
+
+}
+
+
+
+  
+

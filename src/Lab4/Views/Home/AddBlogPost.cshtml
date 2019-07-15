@@ -1,0 +1,34 @@
+﻿@model Assignment1.Models.Blogpost
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Home" asp-action="AddPost">
+    <div class="form-group">
+        <label for="Title">  Title:</label><br />
+        <div class="text-center">
+            <input asp-for="Title" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">Content:</label><br />
+        <div class="text-center">
+            <textarea asp-for="Content" ></textarea>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">Posted: </label><br />
+        <div class="text-center">
+            @Html.TextBoxFor(m => m.Posted, "")
+        </div>
+    </div>
+        <br />
+        <br />
+
+        <input type="submit" value="Post Blog" />
+
+</form>

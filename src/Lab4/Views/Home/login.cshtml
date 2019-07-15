@@ -1,0 +1,26 @@
+﻿@model Assignment1.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Home" asp-action="authenicate">
+    <div class="form-group">
+        <label for="Title">  Email:</label><br />
+        <div class="text-center">
+            <input asp-for="EmailAddress" type="email" />
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">  Password:</label><br />
+        <div class="text-center">
+            <input asp-for="Password" type="password" />
+        </div>
+    </div>
+    <br />
+    <br />
+  
+    <input type="submit" value="Login" />
+
+</form>

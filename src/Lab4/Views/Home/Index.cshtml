@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Assignment1.Models.Blogpost>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Home</h2>
+
+
+    @if (Model == null || Model.Count() == 0)
+    {
+        <h4>Currently, there are no PostBlogs to display.</h4>
+    }
+    else
+    {
+        <br />
+        <h4>PostBlogs</h4>
+        <table class="table table-hover">
+            <thead >
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Posted</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tbody class="text-left">
+                    <tr>
+                        <td>
+                            <a asp-controller="Home" asp-action="DisplayFullBlogPost" asp-route-id="@item.BlogPostId">@item.Title</a>
+
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.Content.Substring(0, @item.Content.Length < 100 ? @item.Content.Length - 1 : 100)
+                        </td>
+                        <td>
+                            @item.Posted.ToString()
+                        </td>
+                        @if (@ViewBag.role == 2)
+                        {
+                            <td>
+                                <a asp-controller="Home" asp-action="EditBlogPost" asp-route-id="@item.BlogPostId">Edit</a>
+                            </td>
+
+                        }
+
+
+                    </tr>
+
+                </tbody>
+
+            }
+        </table>
+    }
+    <br />

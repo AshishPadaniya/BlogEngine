@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body class="text-center" style="background-color:aliceblue ">
+    <div>
+        <div>
+            <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #f1f1f1;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/Home/">Blog Database</a>
+                    </div>
+                    <ul class="nav navbar-nav" style="background-color: #f1f1f1;">
+                        <li><a asp-controller="Home" asp-action="Register">Register</a></li>
+
+                        <li><a asp-controller="Home" asp-action="Login">Login</a></li>
+
+                        @if (@ViewBag.role == 2)
+                        {
+
+                            <li> <a asp-controller="Home" asp-action="AddBlogPost">AddBlogPost</a></li>
+                        }
+                    </ul>
+                </div>
+            </nav>
+            @if (@ViewBag.firstname != null && @ViewBag.lastname != null)
+            {
+                <br /><br /> <br /><br /> <br />
+                <div>WELCOME, @ViewBag.firstname @ViewBag.lastname </div>
+                <br />
+
+            }
+            <div class="page-header">
+                <br />
+                <h2>@ViewBag.Movie</h2>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <br /><br /><br />
+
+    <footer class="wrapper" style="background-color:mintcream">
+        <div id="footer">
+            <p>Student Name: Ashish Padaniya, Student Number: 040852591, Email: pada0006@algonquinlive.com</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+﻿@model Assignment1.Models.Blogpost
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Home" asp-action="ModifyBlogPost">
+    <input type="hidden" value="@Model.BlogPostId" name="BlogPostId" />
+
+    <div class="form-group">
+        <label for="Title">  Title:</label><br />
+        <div class="text-center">
+            <input asp-for="Title" value ="@Model.Title" />
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">  Content:</label><br />
+        <div class="text-center">
+            <textarea asp-for="Content">@Model.Content</textarea>
+        </div>
+    </div>
+   
+    <br />
+    <br />
+    <div class="form-group">
+        <label for="Title">  posted:</label><br />
+        <div class="text-center">
+            <input type="datetime" value="@Model.Posted" asp-for="Posted" />
+        </div>
+    </div>
+    <br />
+    <br />
+
+
+    <input type="submit" value="Edit Blogpost" />
+</form>
